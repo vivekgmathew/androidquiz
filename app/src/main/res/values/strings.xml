@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CS Quiz</string>
+    <string name="message">Hello</string>
+    <string name="send">SEND</string>
+    <string name="subject">Answer One</string>
+    <string name="to">Question number One is Here?</string>
+</resources>

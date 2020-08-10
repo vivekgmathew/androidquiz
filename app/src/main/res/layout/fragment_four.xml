@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Which programming language supports Android development?"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:onClick="onClick"
+            android:id="@+id/img_py"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:hint="Answer One"
+            android:padding="5dp"
+            android:src="@drawable/py" />
+
+        <ImageView
+            android:onClick="onClick"
+            android:id="@+id/img_go"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            android:src="@drawable/go"
+            android:hint="Answer Two" />
+
+
+        <ImageView
+            android:onClick="onClick"
+            android:id="@+id/img_js"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            android:src="@drawable/js"
+            android:hint="Answer Three" />
+
+        <ImageView
+            android:onClick="onClick"
+            android:id="@+id/img_java"
+            android:layout_width="150dp"
+            android:padding="5dp"
+            android:layout_height="80dp"
+            android:src="@drawable/java"
+            android:hint="Answer Four" />
+
+    </LinearLayout>
+</LinearLayout>
