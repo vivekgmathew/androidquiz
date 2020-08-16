@@ -7,10 +7,28 @@
 
     <TextView
         android:layout_width="wrap_content"
+        android:id="@+id/score_tv"
         android:layout_height="wrap_content"
         android:text="Your final Score is : 5"
+        android:layout_gravity="center"
+        android:textSize="20sp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/score_msg"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp">
 
     </TextView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn_try"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="TRY AGAIN"
+        android:padding="12dp"
+        android:textSize="25sp" />
 </LinearLayout>

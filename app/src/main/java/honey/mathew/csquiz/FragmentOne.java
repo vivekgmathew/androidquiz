@@ -32,7 +32,9 @@ public class FragmentOne extends Fragment {
         Button btnThree = v.findViewById(R.id.btn_q_3);
         Button btnFour = v.findViewById(R.id.btn_q_4);
 
-        TextView tv = v.findViewById(R.id.q);
+        TextView tv = v.findViewById(R.id.q1);
+
+        final MainActivity ma = (MainActivity) getActivity();
 
         tv.setText(q.getQuestion());
         btnOne.setText(q.getChoiceOne());
@@ -47,8 +49,9 @@ public class FragmentOne extends Fragment {
                 Button b = (Button) view;
                 selectedAnswer = b.getText().toString();
                 if (selectedAnswer.equals(q.getAnswer())) {
-                    MainActivity ma = (MainActivity) getActivity();
-                    ma.score += 1;
+                    ma.q1Score += 1;
+                } else {
+                    if (ma.q1Score > 0 ) ma.q1Score -= 1;
                 }
             }
         });
@@ -59,8 +62,9 @@ public class FragmentOne extends Fragment {
                 Button b = (Button) view;
                 selectedAnswer = b.getText().toString();
                 if (selectedAnswer.equals(q.getAnswer())) {
-                    MainActivity ma = (MainActivity) getActivity();
-                    ma.score += 1;
+                    ma.q1Score += 1;
+                } else {
+                    if (ma.q1Score > 0 ) ma.q1Score -= 1;
                 }
             }
         });
@@ -71,8 +75,9 @@ public class FragmentOne extends Fragment {
                 Button b = (Button) view;
                 selectedAnswer = b.getText().toString();
                 if (selectedAnswer.equals(q.getAnswer())) {
-                    MainActivity ma = (MainActivity) getActivity();
-                    ma.score += 1;
+                    ma.q1Score += 1;
+                } else {
+                    if (ma.q1Score > 0 ) ma.q1Score -= 1;
                 }
             }
         });
@@ -83,8 +88,9 @@ public class FragmentOne extends Fragment {
                 Button b = (Button) view;
                 selectedAnswer = b.getText().toString();
                 if (selectedAnswer.equals(q.getAnswer())) {
-                    MainActivity ma = (MainActivity) getActivity();
-                    ma.score += 1;
+                    ma.q1Score += 1;
+                }  else {
+                    if (ma.q1Score > 0 ) ma.q1Score -= 1;
                 }
             }
         });

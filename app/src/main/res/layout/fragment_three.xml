@@ -9,6 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/q3"
         android:hint="@string/to"
         android:textSize="25dp" />
 
@@ -25,6 +26,7 @@
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/rb_one"
                 android:padding="12dp"
                 android:hint="Answer One"
                 android:textSize="20sp" />
@@ -32,6 +34,7 @@
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/rb_two"
                 android:padding="12dp"
                 android:hint="Answer Two"
                 android:textSize="20sp" />
@@ -39,6 +42,7 @@
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/rb_three"
                 android:padding="12dp"
                 android:hint="Answer Three"
                 android:textSize="20sp" />
@@ -47,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
+                android:id="@+id/rb_four"
                 android:hint="Answer Four"
                 android:textSize="20sp" />
         </RadioGroup>

@@ -14,8 +14,10 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
     Question question;
 
+    public int q1Score = 0;
+    public int q2Score = 0;
+    public int q3Score = 0;
+    public int q4Score = 0;
+    public int q5Score = 0;
+
     public int score = 0;
 
     List<Question> questions = new ArrayList<Question>();
@@ -34,15 +42,47 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        questions.add(new Question("Which below language is not an OO language",
+        questions.add(new Question("Which below language is not an OO language ?",
                                   "C++", "Java", "C", "C#",
                                   "C"));
-        questions.add(new Question("Which below option is a client side web language",
+        questions.add(new Question("Which below option is a client side web language ?",
                 "JavaScript", "Java", "C#", "Python", "JavaScript"));
 
+        questions.add(new Question("Which below option is not a client side JS framework ?",
+                "React", "Node", "Angular", "View", "Node"
+        ));
+
+        questions.add(new Question("Which below framework is a server side JS framework ?",
+                "Express", "Angular", "React", "Vue", "Express"));
+
+        questions.add(new Question("In addition to Java, Which below language supports Android development ?",
+                "Go", "Python", "Scala", "Kotlin", "Kotlin"));
+
+        questions.add(new Question("Which below option is a Java Script Runtime ?", "Go", "Node",
+                "Python", "Android", "Node"));
+
+        questions.add(new Question("Which below database is NoSQL database ?", "Mysql", "PostgreSQL",
+                "MongoDB", "express", "MongoDB"));
+
+        questions.add(new Question("Which below language support iPhone application development",
+                "Java", "Kotlin", "Swift", "Python", "Swift"));
+
+        questions.add(new Question("Which below option is not a cloud platform", "Aws", "Gcp", "Azure",
+                "Windows", "Windows"));
+
+        // Select 5 questions randomly
         Random r = new Random();
-        int index = r.nextInt(1);
-        question = questions.get(index);
+        Set<Integer> qs = new HashSet<Integer>();
+        while (qs.size() < 5) {
+            qs.add((r.nextInt(9)));
+        }
+
+        final List<Question> dspQuestions = new ArrayList<>();
+        for(Integer q: qs) {
+            dspQuestions.add(questions.get(q));
+        }
+
+        question = dspQuestions.get(0);
         getIntent().putExtra("q", question);
 
         super.onCreate(savedInstanceState);
@@ -71,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (qNo[0]) {
                     case 2: {
-                        question = questions.get(1);
+                        question = dspQuestions.get(1);
                         getIntent().putExtra("q", question);
                         fTwo = new FragmentTwo();
                         ft.remove(fOne);
@@ -80,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                     case 3: {
+                        question = dspQuestions.get(2);
+                        getIntent().putExtra("q", question);
                         fThree = new FragmentThree();
                         ft.remove(fTwo);
                         ft.add(R.id.f_container, fThree, "Fragment Three");
@@ -87,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                     case 4: {
+                        question = dspQuestions.get(3);
+                        getIntent().putExtra("q", question);
                         fFour = new FragmentFour();
                         ft.remove(fThree);
                         ft.add(R.id.f_container, fFour, "Fragment Four");
@@ -94,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                     case 5: {
+                        question = dspQuestions.get(4);
+                        getIntent().putExtra("q", question);
                         fFive = new FragmentFive();
                         ft.remove(fFour);
                         ft.add(R.id.f_container, fFive, "Fragment Five");
@@ -102,19 +148,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (qNo[0] == 6) {
-                    Intent myIntent = new Intent(MainActivity.this, ResultActivity.class);
-                    myIntent.putExtra("score", 4);
-                    MainActivity.this.startActivity(myIntent);
+                    score = q1Score + q2Score + q3Score + q4Score + q5Score;
+                    Intent resIntent = new Intent(MainActivity.this, ResultActivity.class);
+                    resIntent.putExtra("score", score);
+                    MainActivity.this.startActivity(resIntent);
                 }
             }
         });
-    }
-
-    public void onClick(final View v) {
-        int id = v.getId();
-        String msg = "";
-        if (id == R.id.img_java) msg = "Correct Answer";
-        else msg = "Wrong Answer";
-        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
     }
 }
