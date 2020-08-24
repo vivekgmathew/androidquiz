@@ -43,5 +43,14 @@ public class ResultActivity extends AppCompatActivity {
                 ResultActivity.this.startActivity(resIntent);
             }
         });
+
+        Button stopButton = findViewById(R.id.btn_stop);
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent resIntent = new Intent(ResultActivity.this, FirstActivity.class);
+                ResultActivity.this.startActivity(resIntent);
+            }
+        });
     }
 }

@@ -31,4 +31,13 @@
         android:hint="TRY AGAIN"
         android:padding="12dp"
         android:textSize="25sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn_stop"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="STOP"
+        android:padding="12dp"
+        android:textSize="25sp" />
 </LinearLayout>
